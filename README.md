@@ -25,28 +25,127 @@ Step 7: Save and run the application.
 
 
 ## Program:
- ```
-/*
-Program to create an Option Menu
-Developed by: 
-RegisterNumber:  
-*/
+### MainActivity.java:
 ```
+package com.example.ex8;
 
-## MainActivity.java:
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.Toast;
+import android.os.Bundle;
 
+public class MainActivity extends AppCompatActivity {
+    private CheckBox chkAndroid, chkJava, chkPhp, chkCpp, chkC;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        chkAndroid = findViewById(R.id.chkAndroid);
+        chkJava = findViewById(R.id.chkJava);
+        chkPhp = findViewById(R.id.chkPhp);
+        chkCpp = findViewById(R.id.chkCpp);
+        chkC = findViewById(R.id.chkC);
+    }
+    public void showSelected(View view) {
 
+        String selected = "You selected: \n";
 
+        if(chkAndroid.isChecked())
+            selected += "Android";
 
+        if(chkJava.isChecked())
+            selected += "\nJava";
 
-## activity_main.xml:
+        if(chkPhp.isChecked())
+            selected += "\nPHP";
 
+        if(chkCpp.isChecked())
+            selected += "\nCPP";
 
+        if(chkC.isChecked())
+            selected += "\nC";
+
+        Toast.makeText(MainActivity.this, selected, Toast.LENGTH_SHORT).show();
+    }
+}
+```
+### Activity_Main.XML:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#272525">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Select Your favourite Programming language"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textColor="#FF1200"/>
+
+    <CheckBox
+        android:id="@+id/chkAndroid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android"
+        android:textColor="#FF1200"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <CheckBox
+        android:id="@+id/chkJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Java"
+        android:textColor="#FF1200"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <CheckBox
+        android:id="@+id/chkPhp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PHP"
+        android:textColor="#FF1200"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <CheckBox
+        android:id="@+id/chkCpp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CPP"
+        android:textColor="#FF1200"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <CheckBox
+        android:id="@+id/chkC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C"
+        android:textColor="#FF1200"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <Button android:id="@+id/btnDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Display"
+        android:layout_marginTop="20dp"
+        android:onClick="showSelected"
+        android:backgroundTint="#FF1200"
+        android:textColor="#000000"/>
+
+</LinearLayout>
+```
 ## AndroidMainfest.xml
 
 ## Output
 
-
+<img src="1.png" width="400">
 
 ## Result:
 Thus a Simple Android Application to create an check box and display the selected check box using Android Studio was developed and executed successfully.
